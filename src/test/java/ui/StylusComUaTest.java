@@ -43,7 +43,7 @@ public class StylusComUaTest {
         //click on button search
         driver.findElement(By.id("button")).click();
 
-        //verify that Sony Z2 was found
+        //verify that Sony Z2 will be found
         WebElement foundLink = driver.findElement(By.xpath(".//*[@id='col1_content']/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[2]/span[1]"));
 
         //Verifies results
@@ -59,11 +59,15 @@ public class StylusComUaTest {
         //Click characteristics tab
         driver.findElement(By.xpath(".//*[@id='menulink']/ul/li[1]/a")).click();
 
-        //verify that section "Программные функции" was found
+        //verify that section "Программные функции" will be found
         foundLink = driver.findElement(By.xpath(".//*[@id='col1_content']/div[4]/div[1]/div[5]/table/tbody/tr[21]/td/div/p/strong"));
         Assert.assertEquals(foundLink.getText().toString().contains("Программные функции"), true);
 
-        //verify that section "HTML, HTML5, Adobe Flash, RSS" was found
+        //verify that section "Интернет-доступ" will be found
+        foundLink = driver.findElement(By.xpath(".//*[@id='col1_content']/div[4]/div[1]/div[5]/table/tbody/tr[29]/td[1]"));
+        Assert.assertEquals(foundLink.getText().toString().contains("Интернет-доступ"), true);
+
+        //verify that section "HTML, HTML5, Adobe Flash, RSS" will be found
         foundLink = driver.findElement(By.xpath(".//*[@id='col1_content']/div[4]/div[1]/div[5]/table/tbody/tr[29]/td[2]/div"));
         Assert.assertEquals(foundLink.getText().toString().contains("HTML, HTML5, Adobe Flash, RSS"), true);
 
