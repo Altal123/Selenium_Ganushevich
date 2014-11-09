@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: org.beanshell:bsh:2.0b4">
+    <archive path="C:/Users/c2613/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar" />
+  </library>
+  <library name="Maven: org.testng:testng:6.8.8">
+    <archive path="C:/Users/c2613/.m2/repository/org/testng/testng/6.8.8/testng-6.8.8.jar" />
+  </library>
+  <library name="Maven: com.beust:jcommander:1.27">
+    <archive path="C:/Users/c2613/.m2/repository/com/beust/jcommander/1.27/jcommander-1.27.jar" />
+  </library>
+</eclipse-userlibraries>
+
