@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -22,7 +23,7 @@ public class StylusComUaTest {
     @BeforeClass
     public void before(){
 
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -35,10 +36,13 @@ public class StylusComUaTest {
     @Test
     public void searchElement(){
 
-        WebElement element = driver.findElement(By.id("search_text"));
+        //Verify that http://stylus.com.ua/ is opened??
+        Assert.assertEquals(driver.findElement(By.className("tel")).getText().contains("520-520-0"), true);
+
+        WebElement element = getWebElement("search_text");
 
         //write text to wanna be found
-        element.sendKeys("Sony Z2");
+        getSetKeys(element, "Sony Z2");
 
         //click on button search
         driver.findElement(By.id("button")).click();
@@ -47,7 +51,7 @@ public class StylusComUaTest {
         WebElement foundLink = driver.findElement(By.xpath(".//*[@id='col1_content']/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[2]/span[1]"));
 
         //Verifies results
-        Assert.assertEquals(foundLink.getText().toString().contains("Код товара: 198717"), true);
+        Assert.assertEquals(foundLink.getText().contains("Код товара: 198717"), true);
 
         //click on first link of results
         driver.findElement(By.xpath(".//*[@id='col1_content']/table[2]/tbody/tr[1]/td[1]/table/tbody/tr/td[2]/h4/a")).click();
@@ -71,6 +75,15 @@ public class StylusComUaTest {
         foundLink = driver.findElement(By.xpath(".//*[@id='col1_content']/div[4]/div[1]/div[5]/table/tbody/tr[29]/td[2]/div"));
         Assert.assertEquals(foundLink.getText().toString().contains("HTML, HTML5, Adobe Flash, RSS"), true);
 
+    }
+
+    private void getSetKeys(WebElement element, String s) {
+        element.clear();
+        element.sendKeys(s);
+    }
+
+    private WebElement getWebElement(String search_text) {
+        return driver.findElement(By.id(search_text));
     }
 
     @AfterClass
