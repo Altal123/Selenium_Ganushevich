@@ -23,7 +23,7 @@ public class StylusComUaTest {
     @BeforeClass
     public void before(){
 
-        driver = new ChromeDriver();
+        driver = new FirefoxDriver();
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
